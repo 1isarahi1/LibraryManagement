@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script  type = "text/javascript">
+function validateForm()
+{
+	var name = document.getElementById("username").value;
+	var password = document.getElementById("password").value;
+	var email = document.getElementById("email").value;
+	
+	var validityusername = name.match(/^[a-zA-Z0-9]{3,16}$/);
+	var validitypassword= password.match(/[A-Za-z0-9!@#$*&^%$:>{}]{5,16}$/);
+	var validityemail = email.match(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/);
+	
+	
+	if(validityusername==null)
+		{
+		   alert("Invalid Username, try again");
+		   return false;
+		}
+	else
+	{ 
+		if(validitypassword==null)
+	    {
+			alert("Password doesnt comply to given rules, try again");
+			   return false;
+			}
+		else
+			{
+			if(validityemail==null)
+				{
+				alert("Email doesnt comply to given rules, try again");
+				   return false;
+				}
+			else
+				{
+				return true;
+				}
+			}
+		
+	}
+	
+	
+	
+}
+
+</script>
+<meta charset="ISO-8859-1">
+<title>Registration Form</title>
+</head>
+<body>
+<form action = "registerLibrarian" method ="post" onSubmit="return validateForm()">
+<label for = "username">
+Input username
+</label>
+<input type = "text" id="username" name ="username" required>
+
+
+<label for = "password">
+Input password
+</label>
+<input type = "password" id="password" name ="password" required>
+
+<label for = "email">
+Input email
+</label>
+<input type = "email" id="email" name ="email" required>
+
+<label for = "firstname">
+Input first name
+</label>
+<input type = "text" name ="firstname">
+
+<label for = "lastname">
+Input last name
+</label>
+<input type = "text" name ="lastname">
+
+
+
+<br>
+<button type = "submit">Submit form</button>
+<br>
+<a href = "registeradmin.html" >Are you an admin?</a>
+
+<br>
+
+<a href = "registration.html" >Go back </a>
+
+
+</form>
+</body>
+</html>

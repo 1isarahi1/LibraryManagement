@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type = "text/javascript">
+function validateForm()
+{
+	var name = document.getElementById("username").value;
+	var password = document.getElementById("password").value;
+	var validityusername = name.match(/^[a-zA-Z]{3,16}$/);
+	var validitypassword= password.match(/[A-Za-z0-9!@#$*&^%$:>{}]{5,16}$/);
+	
+	if(validityusername==null)
+		{
+		   alert("Invalid Username, try again");
+		   return false;
+		}
+	else
+	{ 
+		if(validitypassword==null)
+	    {
+			alert("Password doesnt comply to given rules, try again");
+			   return false;
+			}
+		else
+			{
+			return true;
+			}
+		
+	}
+	
+
+}
+</script>
+<meta charset="ISO-8859-1">
+<title>Registration Form</title>
+</head>
+<body>
+<form  action = "registerAdmin"  method ="post" onSubmit="return validateForm()">
+<label for = "username">
+Input username
+</label>
+<input type = "text" id="username" name ="username">
+
+
+<label for = "password">
+Input password
+</label>
+<input type = "password"  id="password" name ="admin_password">
+
+<label for = "firstname">
+Input first name
+</label>
+<input type = "text" name ="firstname">
+
+<label for = "lastname">
+Input last name
+</label>
+<input type = "text" name ="lastname">
+
+<label for = "gender">
+Select gender
+</label>
+<input type = "radio" name ="gender" value = "male">
+<label for = "male">
+male
+</label>
+<br>
+<input type = "radio" name ="gender" value = "female">
+<label for = "female">
+female
+</label>
+<br>
+<input type = "radio" name ="gender" value = "other">
+<label for = "other">
+other
+</label>
+<br>
+<button type = "submit" value = "submit" >
+Submit Form
+</button>
+</form>
+<a href = "registration.html">
+Back
+</a>
+<br>
+<a href = "registerlibrarian.html" >Are you an Librarian?</a>
+</body>
+</html>

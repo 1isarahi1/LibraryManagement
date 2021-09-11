@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet" href="registrationlibrary.css">
+<!------ Include the above in your HEAD tag ---------->
+<script  type = "text/javascript">
+$(document).ready(function(){
+
+  $('.input').focus(function(){
+    $(this).parent().find(".label-txt").addClass('label-active');
+  });
+
+  $(".input").focusout(function(){
+    if ($(this).val() == '') {
+      $(this).parent().find(".label-txt").removeClass('label-active');
+    };
+  });
+
+});
+</script>
+<script  type = "text/javascript">
+function validateForm()
+{
+	var name = document.getElementById("username").value;
+	var password = document.getElementById("password").value;
+	var email = document.getElementById("email").value;
+	var validityusername = name.match(/^[a-zA-Z0-9]{3,16}$/);
+	var validitypassword= password.match(/[A-Za-z0-9!@#$*&^%$:>{}]{5,16}$/);
+	
+var validityemail = email.match(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/);
+	
+	
+	if(validityusername==null)
+		{
+		   alert("Invalid Username, try again");
+		   return false;
+		}
+	else
+	{ 
+		if(validitypassword==null)
+	    {
+			alert("Password doesnt comply to given rules, try again");
+			   return false;
+			}
+		else
+			{
+			if(validityemail==null)
+				{
+				alert("Email doesnt comply to given rules, try again");
+				   return false;
+				}
+			else
+				{
+				return true;
+				}
+			}
+		
+	}
+	
+
+}
+
+</script>
+
+
+<title>Registration Form</title>
+</head>
+<body>
+
+<form action = "register" method ="get" onSubmit="return validateForm()">
+<center><h3>Registration Form </h3></center>
+
+	
+
+	
+	<label>
+    <p class="label-txt">USERNAME</p>
+    <input type = "text" class="input" id="username" name ="username" required>
+    <div class="line-box">
+      <div class="line"></div>
+    </div>
+  </label>
+  
+  <label>
+    <p class="label-txt">PASSWORD</p>
+	<input type = "password" class="input" id="password" name ="password" required>
+    <div class="line-box">
+      <div class="line"></div>
+    </div>
+  </label>
+  
+  <label>
+    <p class="label-txt"> EMAIL</p>
+    <input type = "email" class="input" id="email" name ="email" required>
+    <div class="line-box">
+      <div class="line"></div>
+    </div>
+  </label>
+  
+  <label>
+    <p class="label-txt">FIRST NAME</p>
+    <input type = "text" class="input" name ="firstname">
+    <div class="line-box">
+      <div class="line"></div>
+    </div>
+  </label>
+  
+  <label>
+   <p class="label-txt">LAST NAME</p>
+    <input type = "text" class="input" name ="lastname">
+    <div class="line-box">
+      <div class="line"></div>
+    </div>
+  </label>
+  
+   <label>
+    <p class="label-txt">GENDER</p>
+      <input class="radio-inline" type="radio" name="gender" checked>Male
+      <input class="radio-inline" type="radio" name="gender">Female
+      <input class="radio-inline" type="radio" name="gender">Other
+  
+	</label>
+ 
+  <button type="submit">SUBMIT</button>
+  </form>
+  <!--<label>
+    <p class="label-txt"><a href = "registeradmin.html" >Are you an admin?</a></p>
+    <div class="line-box">
+      <div class="line"></div>
+    </div>
+  </label>
+      <div class="radio-inline">
+    </div>
+    <label>
+    <p class="label-txt"><a href = "registrationLibrarian.html" >Are you an Librarian?</a></p>
+    <div class="line-box">
+      <div class="line"></div>
+    </div>
+  </label>
+ -->
+</body>
+</html>
